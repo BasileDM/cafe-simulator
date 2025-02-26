@@ -42,8 +42,8 @@ public class CoffeeManagerTest {
         assertEquals("Milk Coffee", milkCoffee.getDescription(), "Should return Milk Coffee");
 
         // Check prices
-        assertEquals(2.0, espresso.getPrice(), 0.01, "Espresso price should be 2.0");
-        assertEquals(2.5, milkCoffee.getPrice(), 0.01, "Milk Coffee price should be 2.5");
+        assertEquals(CoffeeType.ESPRESSO.getPrice(), espresso.getPrice(), 0.01, "Espresso price should be " + CoffeeType.ESPRESSO.getPrice());
+        assertEquals(CoffeeType.MILK_COFFEE.getPrice(), milkCoffee.getPrice(), 0.01, "Milk Coffee price should be " + CoffeeType.MILK_COFFEE.getPrice());
     }
 
 }
