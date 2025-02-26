@@ -2,8 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CoffeeFactoryTest {
     @Test
@@ -13,6 +12,14 @@ public class CoffeeFactoryTest {
             Coffee coffee = coffeeFactory.createCoffee(type);
             assertNotNull(coffee, "Coffee should not be null");
             assertEquals(type.name(), coffee.getDescription(), "Should return " + type.name());
+            // Check instance of depending on enum value
+            if (type == CoffeeType.ESPRESSO) {
+                assertInstanceOf(Espresso.class, coffee);
+            } else if (type == CoffeeType.MILK_COFFEE) {
+                assertInstanceOf(MilkCoffee.class, coffee);
+            } else {
+                fail("Invalid coffee type: " + type);
+            }
         }
     }
 }
