@@ -13,6 +13,9 @@ public class CoffeeManager {
         return instance;
     }
 
+    public void run() {
+    }
+
     public Coffee createCoffee(CoffeeType coffeeType) {
         return null;
     }
