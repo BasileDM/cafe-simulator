@@ -1,5 +1,5 @@
 package org.example;
 
 public interface Observer {
-    public void update(int orderStatus);
+    public void update(int orderStatus, Coffee coffee);
 }

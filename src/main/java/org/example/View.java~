@@ -37,7 +37,7 @@ public class View implements Observer {
     public static void printReceipt(Coffee coffee) {
         System.out.println("====== Reçu ======");
         System.out.println("Commande : " + coffee.getDescription());
-        System.out.println("Le prix total : " + String.format("%.2f",(double) coffee.getPrice() / 100) + " euros.");
+        System.out.println("Le prix total : " + String.format("%.2f", coffee.getPrice() / 100) + " euros.");
         System.out.println("Merci pour votre commande !");
         System.out.println("==================");
     }

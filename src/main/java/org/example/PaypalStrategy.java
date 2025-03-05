@@ -2,7 +2,7 @@ package org.example;
 
 public class PaypalStrategy implements PaymentStrategy {
     @Override
-    public String checkout(int amount) {
-        return "Transaction paypal de " + amount + "€ terminée.";
+    public String checkout() {
+        return "Transaction paypal effectuée avec succès.";
     }
 }

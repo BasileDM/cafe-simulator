@@ -18,7 +18,7 @@ public class PaymentContext {
         if (paymentStrategy == null) {
             throw new IllegalStateException("Payment strategy not set");
         }
-        String message = paymentStrategy.checkout(amount);
+        String message = paymentStrategy.checkout();
         View.displayMessage(message);
     }
 }

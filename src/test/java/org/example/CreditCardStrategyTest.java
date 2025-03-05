@@ -9,7 +9,7 @@ public class CreditCardStrategyTest {
     public void testCheckout() {
         CreditCardStrategy creditCardStrategy = new CreditCardStrategy();
         int amount = 10;
-        String result = creditCardStrategy.checkout(amount);
+        String result = creditCardStrategy.checkout();
         assertEquals("Checkout with Credit Card: $" + amount, result, "Should return Checkout with Credit Card: $" + amount);
     }
 }

@@ -43,7 +43,7 @@ public class CoffeeManager implements Subject {
         coffee = this.decorateCoffee(coffee);
         this.payOrder(coffee);
         this.orderStatus = 1;
-        this.notifyObservers();
+        this.notifyObservers(coffee);
         return coffee;
     }
 
@@ -79,9 +79,9 @@ public class CoffeeManager implements Subject {
         paymentContext.processPayment(coffee.getPrice());
     }
 
-    public void notifyObservers() {
+    public void notifyObservers(Coffee coffee) {
         for (Observer observer : observers) {
-            observer.update(this.orderStatus);
+            observer.update(this.orderStatus, coffee);
         }
     }
 

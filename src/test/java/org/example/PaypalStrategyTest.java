@@ -10,7 +10,7 @@ public class PaypalStrategyTest {
     public void testCheckout() {
         PaypalStrategy paypalStrategy = new PaypalStrategy();
         int amount = 10;
-        String result = paypalStrategy.checkout(amount);
+        String result = paypalStrategy.checkout();
         assertEquals("Checkout with Paypal: $" + amount, result, "Should return Checkout with Paypal: $10.0");
     }
 }
