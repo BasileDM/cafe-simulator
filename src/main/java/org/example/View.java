@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class View {
+public class View implements Observer {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int showMainMenu() {
@@ -41,5 +41,11 @@ public class View {
 
     public static void displayMessage(String message) {
         System.out.println(message);
+    }
+
+    public void update(int orderStatus) {
+        if (orderStatus == 1) {
+            System.out.println("Votre commande est terminée !");
+        }
     }
 }
