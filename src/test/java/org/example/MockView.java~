@@ -1,0 +1,42 @@
+package org.example;
+
+public class MockView extends View {
+    public static int showMainMenu() {
+        return 1;
+    }
+
+    public static int showCoffeeMenu() {
+        return 1;
+    }
+
+    public static int showCondimentMenu() {
+        return 1;
+    }
+
+    public static int showPaymentMenu() {
+        return 1;
+    }
+
+    public static void printReceipt(Coffee coffee) {
+        System.out.println("====== Reçu ======");
+        System.out.println("Commande : " + coffee.getDescription());
+        System.out.println("Le prix total : " + formatPrice(coffee.getPrice()));
+        System.out.println("Merci pour votre commande !");
+        System.out.println("==================");
+    }
+
+    public static void displayMessage(String message) {
+        System.out.println(message);
+    }
+
+    public void update(int orderStatus, Coffee coffee) {
+        if (orderStatus == 1) {
+            System.out.println("📢 Notification : Votre commande est terminée !");
+            printReceipt(coffee);
+        }
+    }
+
+    private static String formatPrice(double price) {
+        return String.format("%.2f", price / 100) + "€";
+    }
+}

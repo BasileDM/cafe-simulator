@@ -16,7 +16,9 @@ public class CoffeeDecoratorTest {
         assertEquals("Espresso with sugar", espressoWithSugar.getDescription(), "Should return Espresso with sugar");
         assertEquals("Milk Coffee with sugar", milkCoffeeWithSugar.getDescription(), "Should return Milk Coffee with sugar");
 
-        expectedEspressoWithSugarPrice = CoffeeType.ESPRESSO.getPrice() +
-        assertEquals();
+        double expectedEspressoWithSugarPrice = CoffeeType.ESPRESSO.getPrice() + CoffeeWithSugar.additionalPrice;
+        double expectedMilkCoffeeWithSugarPrice = CoffeeType.MILK_COFFEE.getPrice() + CoffeeWithSugar.additionalPrice;
+        assertEquals(expectedEspressoWithSugarPrice, espressoWithSugar.getPrice(), 0.01, "Espresso with sugar price should be " + expectedEspressoWithSugarPrice);
+        assertEquals(expectedMilkCoffeeWithSugarPrice, milkCoffeeWithSugar.getPrice(), 0.01, "Milk Coffee with sugar price should be " + expectedMilkCoffeeWithSugarPrice);
     }
 }

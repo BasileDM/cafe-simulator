@@ -38,13 +38,12 @@ public class CoffeeManager implements Subject {
         }
     }
 
-    public Coffee makeCoffee(CoffeeType coffeeType) {
+    public void makeCoffee(CoffeeType coffeeType) {
         Coffee coffee = CoffeeFactory.createCoffee(coffeeType);
         coffee = this.decorateCoffee(coffee);
         this.payOrder(coffee);
         this.orderStatus = 1;
         this.notifyObservers(coffee);
-        return coffee;
     }
 
     public Coffee decorateCoffee(Coffee baseCoffee) {
