@@ -24,14 +24,14 @@ public class CoffeeManagerTest {
 
         // Try with enum
         for (CoffeeType type : CoffeeType.values()) {
-            Coffee coffee = coffeeManager.createCoffee(type);
+            Coffee coffee = coffeeManager.makeCoffee(type);
             assertNotNull(coffee, "Coffee should not be null");
             assertEquals(type.name(), coffee.getDescription(), "Should return " + type.name());
         }
 
         // Without enum
-        Coffee espresso = coffeeManager.createCoffee(CoffeeType.ESPRESSO);
-        Coffee milkCoffee = coffeeManager.createCoffee(CoffeeType.MILK_COFFEE);
+        Coffee espresso = coffeeManager.makeCoffee(CoffeeType.ESPRESSO);
+        Coffee milkCoffee = coffeeManager.makeCoffee(CoffeeType.MILK_COFFEE);
 
         // Test coffee not null
         assertNotNull(espresso, "Espresso should not be null");

@@ -11,6 +11,6 @@ public class PaypalStrategyTest {
         PaypalStrategy paypalStrategy = new PaypalStrategy();
         int amount = 10;
         String result = paypalStrategy.checkout();
-        assertEquals("Transaction paypal effectuée avec succès.", result, "Should return Checkout with Paypal: $10.0");
+        assertEquals("Checkout with Paypal: $" + amount, result, "Should return Checkout with Paypal: $10.0");
     }
 }

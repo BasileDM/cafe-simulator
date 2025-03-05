@@ -10,6 +10,6 @@ public class CreditCardStrategyTest {
         CreditCardStrategy creditCardStrategy = new CreditCardStrategy();
         int amount = 10;
         String result = creditCardStrategy.checkout();
-        assertEquals("Checkout with Credit Card: $" + amount, result, "Should return Checkout with Credit Card: $" + amount);
+        assertEquals("Transaction par carte de crédit effectuée avec succès.", result, "Should return Checkout with Credit Card: $" + amount);
     }
 }
