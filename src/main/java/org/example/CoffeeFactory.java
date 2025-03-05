@@ -1,7 +1,7 @@
 package org.example;
 
 public class CoffeeFactory {
-    public Coffee createCoffee(CoffeeType coffeeType) {
+    public static Coffee createCoffee(CoffeeType coffeeType) {
         return switch (coffeeType) {
             case CoffeeType.ESPRESSO -> new Espresso();
             case CoffeeType.MILK_COFFEE -> new MilkCoffee();

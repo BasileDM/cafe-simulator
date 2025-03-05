@@ -2,10 +2,8 @@ package org.example;
 
 public class CoffeeManager {
     private static CoffeeManager instance;
-    private final CoffeeFactory coffeeFactory;
 
     private CoffeeManager() {
-        this.coffeeFactory = new CoffeeFactory();
     }
 
     public static CoffeeManager getInstance() {
@@ -22,20 +20,22 @@ public class CoffeeManager {
                 case 1:
                     int coffeeChoice = View.showCoffeeMenu();
                     CoffeeType coffeeType = CoffeeType.values()[coffeeChoice - 1];
-                    Coffee coffee = this.makeCoffee(coffeeType);
+                    this.makeCoffee(coffeeType);
                     break;
                 case 2:
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Choix invalide. Veuillez réessayer.");
             }
         }
     }
 
     public Coffee makeCoffee(CoffeeType coffeeType) {
-        Coffee coffee = this.coffeeFactory.createCoffee(coffeeType);
-        return this.decorateCoffee(coffee);
+        Coffee coffee = CoffeeFactory.createCoffee(coffeeType);
+        coffee = this.decorateCoffee(coffee);
+        this.payOrder(coffee);
+        return coffee;
     }
 
     public Coffee decorateCoffee(Coffee baseCoffee) {
@@ -45,13 +45,28 @@ public class CoffeeManager {
             switch (condimentChoice) {
                 case 1:
                     decoratedCoffee = new CoffeeWithSugar(decoratedCoffee);
-                    System.out.println(decoratedCoffee.getPrice());
                     break;
                 case 2:
                     return decoratedCoffee;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Choix invalide. Veuillez réessayer.");
             }
         }
+    }
+
+    public void payOrder(Coffee coffee) {
+        PaymentContext paymentContext = new PaymentContext();
+        int paymentChoice = View.showPaymentMenu();
+        switch (paymentChoice) {
+            case 1:
+                paymentContext.setPaymentStrategy(new PaypalStrategy());
+                break;
+            case 2:
+                paymentContext.setPaymentStrategy(new CreditCardStrategy());
+                break;
+            default:
+                System.out.println("Choix invalide. Veuillez réessayer.");
+        }
+        paymentContext.processPayment(coffee.getPrice());
     }
 }

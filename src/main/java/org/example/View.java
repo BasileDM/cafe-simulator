@@ -23,7 +23,7 @@ public class View {
     public static int showCondimentMenu() {
         System.out.println("Souhaitez-vous ajouter des condiments ?");
         System.out.println("1. Sucre ");
-        System.out.println("2. Aucun");
+        System.out.println("2. Terminer la commande");
         return scanner.nextInt();
     }
 
@@ -32,5 +32,14 @@ public class View {
         System.out.println("1. Paypal");
         System.out.println("2. Carte de crédit");
         return scanner.nextInt();
+    }
+
+    public static void printReceipt(Coffee coffee) {
+        System.out.println("Votre commande de " + coffee.getDescription() + " est en cours de traitement.");
+        System.out.println("Le prix total de votre commande est de " + coffee.getPrice() + " euros.");
+    }
+
+    public static void displayMessage(String message) {
+        System.out.println(message);
     }
 }
