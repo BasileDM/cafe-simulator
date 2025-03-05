@@ -18,4 +18,11 @@ public class CoffeeManagerTest {
         assertNotEquals(null, coffeeManager, "Instance should not be null");
     }
 
+    @Test
+    public void testDecorateCoffe() {
+        CoffeeManager coffeeManager = CoffeeManager.getInstance();
+        Coffee espresso = coffeeManager.makeCoffee(CoffeeType.ESPRESSO);
+        assertEquals("Espresso", espresso.getDescription(), "Should return Espresso");
+    }
+
 }

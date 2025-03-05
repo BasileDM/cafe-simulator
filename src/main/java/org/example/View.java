@@ -46,6 +46,7 @@ public class View implements Observer {
         System.out.println(message);
     }
 
+    @Override
     public void update(int orderStatus, Coffee coffee) {
         if (orderStatus == 1) {
             System.out.println("📢 Notification : Votre commande est terminée !");

@@ -79,16 +79,19 @@ public class CoffeeManager implements Subject {
         paymentContext.processPayment(coffee.getPrice());
     }
 
+    @Override
     public void notifyObservers(Coffee coffee) {
         for (Observer observer : observers) {
             observer.update(this.orderStatus, coffee);
         }
     }
 
+    @Override
     public void addObserver(Observer observer) {
         observers.add(observer);
     }
 
+    @Override
     public void removeObserver(Observer observer) {
         observers.remove(observer);
     }

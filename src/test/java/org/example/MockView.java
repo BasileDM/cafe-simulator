@@ -1,10 +1,6 @@
 package org.example;
 
-import java.util.Scanner;
-
-public class View implements Observer {
-    private static final Scanner scanner = new Scanner(System.in);
-
+public class MockView implements Observer {
     public static int showMainMenu() {
         System.out.println("Bienvenue dans le simulateur de commandes de café !");
         System.out.println("Que souhaitez-vous faire ?");
@@ -15,14 +11,14 @@ public class View implements Observer {
 
     public static int showCoffeeMenu() {
         System.out.println("Quel type de café souhaitez-vous ?");
-        System.out.println("1. Espresso");
-        System.out.println("2. Cafe au lait");
+        System.out.println("1. Espresso (" + formatPrice(CoffeeType.ESPRESSO.getPrice()) + ")");
+        System.out.println("2. Cafe au lait (" + formatPrice(CoffeeType.MILK_COFFEE.getPrice()) + ")");
         return scanner.nextInt();
     }
 
     public static int showCondimentMenu() {
         System.out.println("Souhaitez-vous ajouter des condiments ?");
-        System.out.println("1. Sucre ");
+        System.out.println("1. Sucre (" + formatPrice(CoffeeWithSugar.additionalPrice) + ")");
         System.out.println("2. Terminer la commande");
         return scanner.nextInt();
     }
@@ -37,7 +33,7 @@ public class View implements Observer {
     public static void printReceipt(Coffee coffee) {
         System.out.println("====== Reçu ======");
         System.out.println("Commande : " + coffee.getDescription());
-        System.out.println("Le prix total : " + String.format("%.2f",(double) coffee.getPrice() / 100) + " euros.");
+        System.out.println("Le prix total : " + formatPrice(coffee.getPrice()));
         System.out.println("Merci pour votre commande !");
         System.out.println("==================");
     }
@@ -51,5 +47,9 @@ public class View implements Observer {
             System.out.println("📢 Notification : Votre commande est terminée !");
             printReceipt(coffee);
         }
+    }
+
+    private static String formatPrice(double price) {
+        return String.format("%.2f", price / 100) + "€";
     }
 }
