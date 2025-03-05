@@ -14,7 +14,7 @@ public class PaymentContext {
         return paymentStrategy;
     }
 
-    public void processPayment(double amount) {
+    public void processPayment(int amount) {
         if (paymentStrategy == null) {
             throw new IllegalStateException("Payment strategy not set");
         }

@@ -1,7 +1,7 @@
 package org.example;
 
 public class Espresso implements Coffee {
-    private final double price;
+    private final int price;
     private final String description;
 
     public Espresso() {
@@ -9,7 +9,7 @@ public class Espresso implements Coffee {
         this.description = CoffeeType.ESPRESSO.getDescription();
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 

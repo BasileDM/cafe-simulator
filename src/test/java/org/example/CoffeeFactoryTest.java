@@ -11,7 +11,7 @@ public class CoffeeFactoryTest {
         for (CoffeeType type : CoffeeType.values()) {
             Coffee coffee = coffeeFactory.createCoffee(type);
             assertNotNull(coffee, "Coffee should not be null");
-            assertEquals(type.name(), coffee.getDescription(), "Should return " + type.name());
+            assertEquals(type.getDescription(), coffee.getDescription(), "Should return " + type.getDescription());
             // Check instance of depending on enum value
             if (type == CoffeeType.ESPRESSO) {
                 assertInstanceOf(Espresso.class, coffee);

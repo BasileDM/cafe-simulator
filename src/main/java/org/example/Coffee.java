@@ -1,6 +1,6 @@
 package org.example;
 
 public interface Coffee {
-    double getPrice();
+    int getPrice();
     String getDescription();
 }

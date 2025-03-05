@@ -8,7 +8,7 @@ public class CreditCardStrategyTest {
     @Test
     public void testCheckout() {
         CreditCardStrategy creditCardStrategy = new CreditCardStrategy();
-        double amount = 10.0;
+        int amount = 10;
         String result = creditCardStrategy.checkout(amount);
         assertEquals("Checkout with Credit Card: $" + amount, result, "Should return Checkout with Credit Card: $" + amount);
     }

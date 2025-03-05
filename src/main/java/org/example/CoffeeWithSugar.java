@@ -1,7 +1,7 @@
 package org.example;
 
 public class CoffeeWithSugar extends CoffeeDecorator {
-    final static double additionalPrice = 0.5;
+    final static int additionalPrice = 50;
     final static String additionalDescription = " with sugar";
 
     public CoffeeWithSugar(Coffee coffee) {
@@ -9,7 +9,7 @@ public class CoffeeWithSugar extends CoffeeDecorator {
     }
 
     @Override
-    public double getPrice() {
+    public int getPrice() {
         return super.getPrice() + additionalPrice;
     }
 

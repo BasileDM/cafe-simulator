@@ -1,18 +1,18 @@
 package org.example;
 
 public enum CoffeeType {
-    ESPRESSO(2.0, "Espresso"),
-    MILK_COFFEE(2.5, "Milk Coffee");
+    ESPRESSO(200, "Espresso"),
+    MILK_COFFEE(300, "Milk Coffee");
 
-    private final double price;
+    private final int price;
     private final String description;
 
-    CoffeeType(double price, String description) {
+    CoffeeType(int price, String description) {
         this.price = price;
         this.description = description;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 

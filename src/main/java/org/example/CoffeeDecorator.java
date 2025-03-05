@@ -7,7 +7,7 @@ public abstract class CoffeeDecorator {
         this.wrappedCoffee = coffee;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return wrappedCoffee.getPrice();
     }
 
